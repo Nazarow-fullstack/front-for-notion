@@ -25,7 +25,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-16">
             <Link href={isAuthenticated ? "/tasks" : "/login"} className="flex items-center space-x-2">
               <KanbanSquare className="h-7 w-7 text-white" />
-              <span className="text-xl font-semibold tracking-tighter">ProjectFlow</span>
+              <span className="text-xl font-semibold tracking-tighter">Notion</span>
             </Link>
 
             <nav className="hidden md:flex items-center space-x-2">

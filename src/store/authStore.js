@@ -15,7 +15,7 @@ const useAuthStore = create(
       login: async (username, password) => {
         set({ isLoading: true, error: null });
         try {
-          const response = await fetch('http://127.0.0.1:8000/auth/login/', {
+          const response = await fetch('http://127.0.0.1:8000/api/auth/login/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password }),
@@ -42,7 +42,7 @@ const useAuthStore = create(
         const { refreshToken } = get();
         set({ isLoading: true });
         try {
-          await fetch('http://127.0.0.1:8000/auth/logout/', {
+          await fetch('http://127.0.0.1:8000/api/auth/logout/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ refresh: refreshToken }),
@@ -64,7 +64,7 @@ const useAuthStore = create(
       register: async (username, password) => {
         set({ isLoading: true, error: null });
         try {
-          const response = await fetch('http://127.0.0.1:8000/auth/register/', {
+          const response = await fetch('http://127.0.0.1:8000/api/auth/register/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password }),
