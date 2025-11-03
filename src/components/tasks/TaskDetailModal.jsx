@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Clock, User, Folder, MessageSquare } from 'lucide-react';
+import { X, Clock, User, Folder, MessageSquare, Briefcase } from 'lucide-react';
 import useCommentStore from '@/store/commentStore';
 import CommentList from '../comments/CommentList';
 import CommentForm from '../comments/CommentForm';
@@ -21,7 +21,8 @@ export default function TaskDetailModal({ isOpen, onClose, task }) {
           <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} className="w-full max-w-2xl h-[80vh] bg-neutral-950 border border-neutral-800 rounded-lg p-8 relative flex flex-col" onClick={(e) => e.stopPropagation()}>
             <button onClick={onClose} className="absolute top-4 right-4 text-neutral-500 hover:text-white"><X /></button>
             <h2 className="text-2xl font-bold text-white mb-2">{task.title}</h2>
-            <div className="flex items-center gap-6 text-sm text-neutral-400 mb-4 border-b border-neutral-800 pb-4">
+            <div className="flex items-center flex-wrap gap-x-6 gap-y-2 text-sm text-neutral-400 mb-4 border-b border-neutral-800 pb-4">
+              <div className="flex items-center gap-2"><Briefcase size={14}/><span>{task.project?.name}</span></div>
               <div className="flex items-center gap-2"><Folder size={14}/><span>{task.command?.name_comand}</span></div>
               <div className="flex items-center gap-2"><User size={14}/><span>{task.assigned_to || 'Не назначен'}</span></div>
               <div className="flex items-center gap-2"><Clock size={14}/><span>{new Date(task.deadline).toLocaleString()}</span></div>

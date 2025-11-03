@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Pencil, Trash2, Clock, User, Folder } from 'lucide-react';
+import { Pencil, Trash2, Clock, User, Folder, Briefcase } from 'lucide-react';
 import useTaskStore from '@/store/taskStore';
 
 const statusColors = { new: 'border-blue-500', in_progress: 'border-yellow-500', done: 'border-green-500', overdue: 'border-red-500' };
@@ -32,6 +32,7 @@ export default function TaskCard({ task, onEdit, onViewDetails }) {
       </div>
       <div className="mt-4 text-xs text-neutral-500 space-y-2">
         <div className="flex items-center gap-2"><Clock size={12}/> <span>{new Date(task.deadline).toLocaleDateString()}</span></div>
+        <div className="flex items-center gap-2"><Briefcase size={12}/> <span>{task.project?.name}</span></div>
         <div className="flex items-center gap-2"><Folder size={12}/> <span>{task.command?.name_comand}</span></div>
         <div className="flex items-center gap-2"><User size={12}/> <span>{task.assigned_to || 'Не назначен'}</span></div>
       </div>

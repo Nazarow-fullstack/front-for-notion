@@ -32,7 +32,9 @@ export default function ProjectItem({ project, onEdit }) {
       <div className="flex justify-between items-start">
         <div>
           <h3 className="text-xl font-bold text-white">{project.name}</h3>
-          <p className="text-sm text-neutral-400 mt-1">Команда: {project.command}</p>
+          <p className="text-sm text-neutral-400 mt-1">
+            Команды: {project.commands && project.commands.length > 0 ? project.commands.join(', ') : 'Нет команд'}
+          </p>
         </div>
         <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
           <button onClick={handleEdit} className="p-2 text-neutral-400 hover:text-white"><Pencil size={16} /></button>
